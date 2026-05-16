@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veltrix — Freelance Frontend Developer</title>
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <canvas id="gridCanvas"></canvas>
+
+  <!-- ===== TOP BAR ===== -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="#home" class="topbar-logo">
+        <img src="images/logo.png" alt="Veltrix">
+        <span>Veltrix</span>
+      </a>
+    </div>
+    <div class="topbar-center">
+      🚀 Currently accepting new projects for May 2026
+      <a href="#contact" class="pill-btn">Book a Project!</a>
+    </div>
+    <div class="topbar-right">
+      <a href="https://github.com/Deepan-hub" target="_blank" rel="noopener" class="ghost-btn">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+        <span>GitHub</span>
+      </a>
+      <a href="#contact" class="cta-btn">Hire Me <span>→</span></a>
+    </div>
+  </header>
+
+  <!-- ===== MOBILE OVERLAY ===== -->
+  <div class="mobile-overlay" id="overlay"></div>
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar" id="sidebar">
+    <nav class="sidebar-nav">
+      <div class="sidebar-nav-label">MAIN</div>
+      <a href="#home" class="active" data-section="home">
+        <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg></span>
+        Home
+      </a>
+      <a href="#projects" data-section="projects">
+        <span class="nav-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></span>
+        Projects
+      </a>
+      <a href="#casestudies" data-section="casestudies">
+        <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M8 7h12M8 12h12M8 17h12M4 7h.01M4 12h.01M4 17h.01"/></svg></span>
+        Case Studies
+      </a>
+      <div class="sidebar-nav-label">OTHER</div>
+      <a href="#services" data-section="services">
+        <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+        Services &amp; Pricing
+      </a>
+      <a href="#contact" data-section="contact">
+        <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+        Contact
+      </a>
+      <a href="#about" data-section="about">
+        <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+        About Me
+      </a>
+    </nav>
+    <div class="sidebar-availability">
+      <span class="dot"></span>
+      <span>Available for work</span>
+    </div>
+    <div class="sidebar-bottom">
+      <a href="https://github.com/Deepan-hub" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/deepan-frontend" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+      <a href="mailto:hello@veltrix.dev" aria-label="Email">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="main">
+
+    <!-- HOME / HERO -->
+    <section id="home" class="hero fade-section">
+      <div class="hero-inner">
+          <div class="hero-text">
+          <div class="hero-availability">
+            <span class="dot"></span>
+            Open for new projects — May 2026
+          </div>
+          <h1>Ship Faster. Look Better.</h1>
+          <h1><span class="gradient-text">Grow Bigger.</span></h1>
+          <div class="hero-typewriter">
+            I build <span id="typewriterText"></span><span class="cursor"></span>
+          </div>
+          <p class="hero-sub">
+            From idea to launch in days — not months. Fast, scalable, beautiful web products for founders and startups who want results, not excuses.
+          </p>
+          <div class="hero-btns">
+            <a href="#projects" class="hero-btn-primary">View my work <span>→</span></a>
+            <a href="#contact" class="hero-btn-secondary">Start a Project</a>
+          </div>
+          <div class="hero-trust">
+            ⚡ Avg delivery: 48hrs · 100% satisfaction guaranteed
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-ring"></div>
+          <div class="hero-ring-2"></div>
+          <div class="hero-orbit">
+            <span class="hero-orbit-item">React</span>
+            <span class="hero-orbit-item">JS</span>
+            <span class="hero-orbit-item">HTML</span>
+            <span class="hero-orbit-item">CSS</span>
+            <span class="hero-orbit-item mobile-badge mobile-badge-top">React</span>
+            <span class="hero-orbit-item mobile-badge mobile-badge-right">html</span>
+            <span class="hero-orbit-item mobile-badge mobile-badge-bottom">css</span>
+            <span class="hero-orbit-item mobile-badge mobile-badge-left">JS</span>
+          </div>
+          <div class="hero-ring-center"><img src="images/logo.png" alt="V" style="width:200px;height:200px;object-fit:contain;"><span class="hero-ring-v" style="display:none;">V</span></div>
+        </div>
+      </div>
+      <div class="hero-strip">
+        <div class="hero-strip-item">
+          <div class="strip-icon-box">⏱</div>
+          <div>
+            <div class="strip-num">01</div>
+            <strong>Fast Turnaround</strong>
+            <div class="strip-sub">Most projects delivered in 48–72hrs</div>
+          </div>
+        </div>
+        <div class="hero-strip-item">
+          <div class="strip-icon-box">💻</div>
+          <div>
+            <div class="strip-num">02</div>
+            <strong>Clean, Modern Code</strong>
+            <div class="strip-sub">React · JavaScript · HTML/CSS</div>
+          </div>
+        </div>
+        <div class="hero-strip-item">
+          <div class="strip-icon-box">🛡</div>
+          <div>
+            <div class="strip-num">03</div>
+            <strong>100% Satisfaction</strong>
+            <div class="strip-sub">Revisions until you love it</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="fade-section">
+      <h2 class="section-title" style="font-size:26px;">My Projects</h2>
+      <p class="section-sub">A selection of apps and websites I've built recently.</p>
+      <div class="filter-row">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="react">React JS</button>
+        <button class="filter-btn" data-filter="js">JavaScript</button>
+        <button class="filter-btn" data-filter="html">HTML/ CSS &amp; JS</button>
+        <button class="filter-btn" data-filter="ai">AI Apps</button>
+      </div>
+      <div class="projects-grid" id="projectsGrid">
+        <div class="project-card" data-category="react js ai">
+          <div class="project-thumb" style="background:url('images/1.png') center/cover no-repeat">
+            <span class="category-tag react">React JS</span>
+            <a href="https://aithumbforge.netlify.app" target="_blank" rel="noopener" class="project-overlay"><span>👁 Preview</span></a>
+          </div>
+          <div class="project-info">
+            <div class="project-type">WEB APP</div>
+            <div class="project-name">AI-Powered Thumbnail Generator</div>
+            <div class="project-actions-row">
+              <a href="https://aithumbforge.netlify.app" target="_blank" rel="noopener" class="project-btn-live">
+                <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Live Preview
+              </a>
+              <a href="#casestudies" class="project-btn-case">
+                <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                Case Study
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card" data-category="html js">
+          <div class="project-thumb" style="background:url('images/2.png') center/cover no-repeat">
+            <span class="category-tag html">HTML/ CSS &amp; JS</span>
+            <a href="https://demomedicareplus.netlify.app" target="_blank" rel="noopener" class="project-overlay"><span>👁 Preview</span></a>
+          </div>
+          <div class="project-info">
+            <div class="project-type">HEALTHCARE</div>
+            <div class="project-name">Multi-Specialty Healthcare</div>
+            <div class="project-actions-row">
+              <a href="https://demomedicareplus.netlify.app" target="_blank" rel="noopener" class="project-btn-live">
+                <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Live Preview
+              </a>
+              <a href="#casestudies" class="project-btn-case">
+                <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                Case Study
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card" data-category="html js">
+          <div class="project-thumb" style="background:url('images/3.png') center/cover no-repeat">
+            <span class="category-tag html">HTML/ CSS &amp; JS</span>
+            <a href="https://codenovea.netlify.app" target="_blank" rel="noopener" class="project-overlay"><span>👁 Preview</span></a>
+          </div>
+          <div class="project-info">
+            <div class="project-type">PORTFOLIO</div>
+            <div class="project-name">Portfolio Website</div>
+            <div class="project-actions-row">
+              <a href="https://codenovea.netlify.app" target="_blank" rel="noopener" class="project-btn-live">
+                <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Live Preview
+              </a>
+              <a href="#casestudies" class="project-btn-case">
+                <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                Case Study
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card" data-category="html js">
+          <div class="project-thumb" style="background:url('images/4.png') center/cover no-repeat">
+            <span class="category-tag html">HTML/ CSS &amp; JS</span>
+            <a href="https://demoroyalfoods.netlify.app" target="_blank" rel="noopener" class="project-overlay"><span>👁 Preview</span></a>
+          </div>
+          <div class="project-info">
+            <div class="project-type">RESTAURANT</div>
+            <div class="project-name">Luxury Restaurant Website</div>
+            <div class="project-actions-row">
+              <a href="https://demoroyalfoods.netlify.app" target="_blank" rel="noopener" class="project-btn-live">
+                <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Live Preview
+              </a>
+              <a href="#casestudies" class="project-btn-case">
+                <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                Case Study
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card coming-soon" data-category="all">
+          <div class="coming-soon-content">
+            <div class="cs-icon">🚀</div>
+            <div class="cs-title">Coming Soon</div>
+            <div class="cs-status">In Progress</div>
+          </div>
+        </div>
+        <div class="project-card coming-soon" data-category="all">
+          <div class="coming-soon-content">
+            <div class="cs-icon">✨</div>
+            <div class="cs-title">Coming Soon</div>
+            <div class="cs-status">In Progress</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CASE STUDIES -->
+    <section id="casestudies" class="fade-section">
+      <div style="display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:12px;font-size:10px;font-weight:700;border:1px solid rgba(139,92,246,0.25);background:rgba(139,92,246,0.08);color:#a78bfa;margin-bottom:8px;">✦ Real projects · Real results · Measurable impact</div>
+      <h2 class="section-title" style="font-size:26px;">Case Studies</h2>
+      <p class="section-sub">Real projects. Real results. See how I solved complex problems.</p>
+
+      <div class="case-slider-wrap">
+        <div class="case-slider-track" id="caseSliderTrack">
+
+          <!-- Slide 1 -->
+          <div class="case-card case-slide">
+            <div class="case-thumb" style="background:url('images/1.png') center/cover no-repeat">
+              <span class="case-icon"></span>
+              <span class="case-result-chip"><span class="num">2.4×</span><span class="label">CTR increase</span></span>
+            </div>
+            <div class="case-body">
+              <div class="case-title">AI-Powered Thumbnail Generator</div>
+              <div class="case-steps">
+                <div class="case-step"><div class="step-label problem"><span>△</span> Problem</div><div class="step-desc">Content creators spent 3+ hrs/thumbnail with 3.2% CTR — existing tools lacked customization.</div></div>
+                <div class="case-step"><div class="step-label solution"><span>◆</span> Solution</div><div class="step-desc">React-based AI generator with REST API, templates, text overlays, and one-click social media export.</div></div>
+                <div class="case-step"><div class="step-label results"><span>▲</span> Results</div><div class="step-desc">CTR jumped to 7.8%. 15K+ new subscribers in 2 months.</div></div>
+              </div>
+              <div class="case-divider"></div>
+              <div class="case-metrics">
+                <div class="case-metric"><span class="num">7.8%</span><span class="label">CTR achieved</span></div>
+                <div class="case-metric"><span class="num">15K+</span><span class="label">New subscribers</span></div>
+                <div class="case-metric"><span class="num">2mo</span><span class="label">Time to results</span></div>
+              </div>
+              <div class="case-stack"><span>React</span><span>REST API</span><span>JavaScript</span></div>
+              <button class="case-btn">View Case Study <span>→</span></button>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="case-card case-slide">
+            <div class="case-thumb" style="background:url('images/4.png') center/cover no-repeat">
+              <span class="case-icon"></span>
+              <span class="case-result-chip"><span class="num">180%</span><span class="label">Booking rise</span></span>
+            </div>
+            <div class="case-body">
+              <div class="case-title">Luxury Restaurant Website</div>
+              <div class="case-steps">
+                <div class="case-step"><div class="step-label problem"><span>△</span> Problem</div><div class="step-desc">Upscale Indian dining brand had 45% mobile bounce rate, no online reservations, losing customers to competitors.</div></div>
+                <div class="case-step"><div class="step-label solution"><span>◆</span> Solution</div><div class="step-desc">Premium React site with reservation system, filtered menu, chef profiles, gallery, and Google Maps integration.</div></div>
+                <div class="case-step"><div class="step-label results"><span>▲</span> Results</div><div class="step-desc">Bounce rate dropped to 22%. Reservations up 180% in first quarter. 35% rise in total bookings.</div></div>
+              </div>
+              <div class="case-divider"></div>
+              <div class="case-metrics">
+                <div class="case-metric"><span class="num">22%</span><span class="label">Bounce rate</span></div>
+                <div class="case-metric"><span class="num">180%</span><span class="label">More bookings</span></div>
+                <div class="case-metric"><span class="num">35%</span><span class="label">Revenue rise</span></div>
+              </div>
+              <div class="case-stack"><span>React</span><span>Reservation API</span><span>Maps</span></div>
+              <button class="case-btn">View Case Study <span>→</span></button>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="case-card case-slide">
+            <div class="case-thumb" style="background:url('images/2.png') center/cover no-repeat">
+              <span class="case-icon"></span>
+              <span class="case-result-chip"><span class="num">65%</span><span class="label">Online bookings</span></span>
+            </div>
+            <div class="case-body">
+              <div class="case-title">Multi-Specialty Healthcare Website</div>
+              <div class="case-steps">
+                <div class="case-step"><div class="step-label problem"><span>△</span> Problem</div><div class="step-desc">6-department clinic had zero online presence. Phone-only booking caused long wait times and missed consultations.</div></div>
+                <div class="case-step"><div class="step-label solution"><span>◆</span> Solution</div><div class="step-desc">Clean HTML/CSS/JS site with department pages, doctor profiles, FAQ accordion, and appointment booking form.</div></div>
+                <div class="case-step"><div class="step-label results"><span>▲</span> Results</div><div class="step-desc">65% of bookings moved online within 6 weeks. 40% less phone workload. 28% more new patients.</div></div>
+              </div>
+              <div class="case-divider"></div>
+              <div class="case-metrics">
+                <div class="case-metric"><span class="num">65%</span><span class="label">Online bookings</span></div>
+                <div class="case-metric"><span class="num">40%</span><span class="label">Less calls</span></div>
+                <div class="case-metric"><span class="num">28%</span><span class="label">New patients</span></div>
+              </div>
+              <div class="case-stack"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+              <button class="case-btn">View Case Study <span>→</span></button>
+            </div>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="case-card case-slide">
+            <div class="case-thumb" style="background:url('images/3.png') center/cover no-repeat">
+              <span class="case-icon"></span>
+              <span class="case-result-chip"><span class="num">3×</span><span class="label">Client inquiries</span></span>
+            </div>
+            <div class="case-body">
+              <div class="case-title">Freelancer Portfolio Website</div>
+              <div class="case-steps">
+                <div class="case-step"><div class="step-label problem"><span>△</span> Problem</div><div class="step-desc">Freelance developer had no online presence, relying only on word of mouth. Missing potential clients daily.</div></div>
+                <div class="case-step"><div class="step-label solution"><span>◆</span> Solution</div><div class="step-desc">Modern React portfolio with animated hero, projects showcase, services pricing, contact form, and live chat widget.</div></div>
+                <div class="case-step"><div class="step-label results"><span>▲</span> Results</div><div class="step-desc">Client inquiries tripled in first month. Booked 3 new projects within 2 weeks of launch.</div></div>
+              </div>
+              <div class="case-divider"></div>
+              <div class="case-metrics">
+                <div class="case-metric"><span class="num">3×</span><span class="label">More inquiries</span></div>
+                <div class="case-metric"><span class="num">3</span><span class="label">Projects booked</span></div>
+                <div class="case-metric"><span class="num">2wk</span><span class="label">Time to results</span></div>
+              </div>
+              <div class="case-stack"><span>React</span><span>CSS Animations</span><span>UI/UX</span></div>
+              <button class="case-btn">View Case Study <span>→</span></button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Slider Controls -->
+      <div class="case-slider-controls">
+        <div class="case-dots" id="caseDots"></div>
+        <div class="case-nav-row">
+          <button class="case-nav-btn" id="casePrev">‹</button>
+          <span class="case-counter" id="caseCounter">1 / 4</span>
+          <button class="case-nav-btn" id="caseNext">›</button>
+        </div>
+        <div class="case-swipe-hint" id="caseSwipeHint">Swipe to see more <span class="hint-arrow">→</span></div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="fade-section">
+      <div class="services-badge">+ What I Build</div>
+      <h2 class="stitle">Services</h2>
+      <p class="ssub">Everything you need to launch and grow online.</p>
+
+      <div class="tabs-row" id="tabsRow">
+        <button class="tbtn" data-tab="0">🌐 Landing</button>
+        <button class="tbtn" data-tab="1">👤 Portfolio</button>
+        <button class="tbtn" data-tab="2">🎨 Figma</button>
+        <button class="tbtn" data-tab="3">🏢 Business</button>
+        <button class="tbtn" data-tab="4">🛒 Store</button>
+        <button class="tbtn" data-tab="5">🤖 AI</button>
+      </div>
+
+      <!-- Tab 1 — Landing Pages -->
+      <div class="tpanel" data-panel="0">
+        <div class="tcard" style="background:linear-gradient(135deg,#13111f,#1a1232);border:1px solid rgba(124,58,237,0.3);">
+          <div class="tcard-orb" style="background:radial-gradient(circle,#7c3aed,transparent);"></div>
+          <div style="position:absolute;top:58px;right:20px;background:rgba(124,58,237,0.15);border:1px solid rgba(124,58,237,0.35);border-radius:999px;padding:3px 10px;font-size:10px;color:#a78bfa;font-weight:600;">✦ NO RUSH FEE</div>
+          <div class="tcard-top">
+            <div class="tcard-icon" style="background:rgba(124,58,237,0.2);">🌐</div>
+            <span class="tcard-badge" style="background:rgba(124,58,237,0.2);color:#a78bfa;border:1px solid rgba(124,58,237,0.3);">⭐ Popular</span>
+          </div>
+          <div class="tcard-name">Landing Pages</div>
+          <div class="tcard-desc">High-converting single-page websites designed to turn visitors into paying customers fast.</div>
+          <ul class="tcard-features">
+            <li><svg viewBox="0 0 24 24" stroke="#a78bfa" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Mobile responsive</li>
+            <li><svg viewBox="0 0 24 24" stroke="#a78bfa" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Fast load under 2s</li>
+            <li><svg viewBox="0 0 24 24" stroke="#a78bfa" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>SEO optimised</li>
+            <li><svg viewBox="0 0 24 24" stroke="#a78bfa" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>3 revisions included</li>
+          </ul>
+          <div class="tcard-bottom">
+            <div>
+              <div class="tcard-price" style="color:#a78bfa;">From $60</div>
+              <div class="tcard-delivery">Delivered in 2–3 days</div>
+            </div>
+            <a href="#contact" onclick="pickService('landing')" class="tcard-btn" style="background:rgba(124,58,237,0.3);color:#a78bfa;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:4px;">Get Started →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 2 — Portfolio Websites -->
+      <div class="tpanel" data-panel="1">
+        <div class="tcard" style="background:linear-gradient(135deg,#0f1a2e,#111f3a);border:1px solid rgba(37,99,235,0.3);">
+          <div class="tcard-orb" style="background:radial-gradient(circle,#2563eb,transparent);"></div>
+          <div style="position:absolute;top:58px;right:20px;background:rgba(124,58,237,0.15);border:1px solid rgba(124,58,237,0.35);border-radius:999px;padding:3px 10px;font-size:10px;color:#a78bfa;font-weight:600;">✦ NO RUSH FEE</div>
+          <div class="tcard-top">
+            <div class="tcard-icon" style="background:rgba(37,99,235,0.2);">👤</div>
+            <span class="tcard-badge" style="background:rgba(124,58,237,0.2);color:#a78bfa;border:1px solid rgba(124,58,237,0.3);">⭐ Popular</span>
+          </div>
+          <div class="tcard-name">Portfolio Websites</div>
+          <div class="tcard-desc">Clean, modern personal sites for developers and designers to attract dream clients.</div>
+          <ul class="tcard-features">
+            <li><svg viewBox="0 0 24 24" stroke="#60a5fa" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Custom animations</li>
+            <li><svg viewBox="0 0 24 24" stroke="#60a5fa" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Projects showcase</li>
+            <li><svg viewBox="0 0 24 24" stroke="#60a5fa" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Contact form</li>
+            <li><svg viewBox="0 0 24 24" stroke="#60a5fa" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>5 revisions included</li>
+          </ul>
+          <div class="tcard-bottom">
+            <div>
+              <div class="tcard-price" style="color:#60a5fa;">From $75</div>
+              <div class="tcard-delivery">Delivered in 2–4 days</div>
+            </div>
+            <a href="#contact" onclick="pickService('portfolio')" class="tcard-btn" style="background:rgba(37,99,235,0.25);color:#60a5fa;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:4px;">Get Started →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 3 — Figma to Code -->
+      <div class="tpanel" data-panel="2">
+        <div class="tcard" style="background:linear-gradient(135deg,#13111f,#1a1232);border:1px solid rgba(139,92,246,0.3);">
+          <div class="tcard-orb" style="background:radial-gradient(circle,#7c3aed,transparent);"></div>
+          <div style="position:absolute;top:58px;right:20px;background:rgba(124,58,237,0.15);border:1px solid rgba(124,58,237,0.35);border-radius:999px;padding:3px 10px;font-size:10px;color:#a78bfa;font-weight:600;">✦ NO RUSH FEE</div>
+          <div class="tcard-top">
+            <div class="tcard-icon" style="background:rgba(139,92,246,0.15);">🎨</div>
+            <span class="tcard-badge" style="background:rgba(124,58,237,0.2);color:#a78bfa;border:1px solid rgba(124,58,237,0.3);">⭐ Popular</span>
+          </div>
+          <div class="tcard-name">Figma to HTML / React</div>
+          <div class="tcard-desc">Pixel-perfect conversion of your Figma designs into clean, responsive HTML/CSS or React code — exactly as designed.</div>
+          <ul class="tcard-features">
+            <li><svg viewBox="0 0 24 24" stroke="#a78bfa" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Pixel-perfect accuracy</li>
+            <li><svg viewBox="0 0 24 24" stroke="#a78bfa" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Responsive &amp; mobile-ready</li>
+            <li><svg viewBox="0 0 24 24" stroke="#a78bfa" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Clean semantic code</li>
+            <li><svg viewBox="0 0 24 24" stroke="#a78bfa" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>React or plain HTML</li>
+            <li><svg viewBox="0 0 24 24" stroke="#a78bfa" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>CSS animations included</li>
+            <li><svg viewBox="0 0 24 24" stroke="#a78bfa" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>3 revisions included</li>
+          </ul>
+          <div class="tcard-bottom">
+            <div>
+              <div class="tcard-price" style="color:#a78bfa;">From $50</div>
+              <div class="tcard-delivery">Delivered in 2–4 days</div>
+            </div>
+            <a href="#contact" onclick="pickService('figma')" class="tcard-btn" style="background:rgba(139,92,246,0.2);color:#a78bfa;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:4px;">Get Started →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 4 — Business Websites -->
+      <div class="tpanel" data-panel="3">
+        <div class="tcard" style="background:linear-gradient(135deg,#0b0b13,#0c110e);border:1px solid rgba(16,185,129,0.25);">
+          <div class="tcard-orb" style="background:radial-gradient(circle,#10b981,transparent);"></div>
+          <div class="tcard-top">
+            <div class="tcard-icon" style="background:rgba(16,185,129,0.18);">🏢</div>
+            <span class="tcard-badge" style="background:rgba(124,58,237,0.2);color:#a78bfa;border:1px solid rgba(124,58,237,0.3);">⭐ Popular</span>
+          </div>
+          <div class="tcard-name">Business Websites</div>
+          <div class="tcard-desc">Multi-page websites for small businesses and local brands — fully responsive.</div>
+          <ul class="tcard-features">
+            <li><svg viewBox="0 0 24 24" stroke="#34d399" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Up to 6 pages</li>
+            <li><svg viewBox="0 0 24 24" stroke="#34d399" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Google Maps integration</li>
+            <li><svg viewBox="0 0 24 24" stroke="#34d399" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>WhatsApp chat button</li>
+            <li><svg viewBox="0 0 24 24" stroke="#34d399" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Admin dashboard</li>
+          </ul>
+          <div class="tcard-bottom">
+            <div>
+              <div class="tcard-price" style="color:#34d399;">From $100</div>
+              <div class="tcard-delivery">Delivered in 5–7 days</div>
+            </div>
+            <a href="#contact" onclick="pickService('other')" class="tcard-btn" style="background:rgba(16,185,129,0.18);color:#34d399;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:4px;">Get Started →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 5 — E-Commerce Stores -->
+      <div class="tpanel" data-panel="4">
+        <div class="tcard" style="background:linear-gradient(135deg,#0b0b13,#110d0d);border:1px solid rgba(239,68,68,0.25);">
+          <div class="tcard-orb" style="background:radial-gradient(circle,#ef4444,transparent);"></div>
+          <div class="tcard-top">
+            <div class="tcard-icon" style="background:rgba(239,68,68,0.18);">🛒</div>
+            <span class="tcard-badge" style="background:rgba(124,58,237,0.2);color:#a78bfa;border:1px solid rgba(124,58,237,0.3);">⭐ Popular</span>
+          </div>
+          <div class="tcard-name">E-Commerce Stores</div>
+          <div class="tcard-desc">Full online stores with product listings, cart, checkout and payment gateway integration.</div>
+          <ul class="tcard-features">
+            <li><svg viewBox="0 0 24 24" stroke="#f87171" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Razorpay / Stripe payment</li>
+            <li><svg viewBox="0 0 24 24" stroke="#f87171" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Order management</li>
+            <li><svg viewBox="0 0 24 24" stroke="#f87171" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Inventory dashboard</li>
+            <li><svg viewBox="0 0 24 24" stroke="#f87171" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Product filters</li>
+          </ul>
+          <div class="tcard-bottom">
+            <div>
+              <div class="tcard-price" style="color:#f87171;">From $150</div>
+              <div class="tcard-delivery">Delivered in 7–10 days</div>
+            </div>
+            <a href="#contact" onclick="pickService('other')" class="tcard-btn" style="background:rgba(239,68,68,0.18);color:#f87171;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:4px;">Get Started →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 6 — AI-Powered Websites -->
+      <div class="tpanel" data-panel="5">
+        <div class="tcard" style="background:linear-gradient(135deg,#0b0b13,#110f08);border:1px solid rgba(251,191,36,0.25);">
+          <div class="tcard-orb" style="background:radial-gradient(circle,#fbbf24,transparent);"></div>
+          <div class="tcard-top">
+            <div class="tcard-icon" style="background:rgba(251,191,36,0.15);">🤖</div>
+            <span class="tcard-badge" style="background:rgba(251,191,36,0.15);color:#fbbf24;border:1px solid rgba(251,191,36,0.3);">🔥 New</span>
+            <span class="tcard-badge" style="background:rgba(124,58,237,0.2);color:#a78bfa;border:1px solid rgba(124,58,237,0.3);margin-left:6px;">⭐ Popular</span>
+          </div>
+          <div class="tcard-name">AI-Powered Websites</div>
+          <div class="tcard-desc">Websites with built-in AI features — chatbots, content generators and smart search.</div>
+          <ul class="tcard-features">
+            <li><svg viewBox="0 0 24 24" stroke="#fbbf24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>ChatGPT / Claude API</li>
+            <li><svg viewBox="0 0 24 24" stroke="#fbbf24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>AI chatbot included</li>
+            <li><svg viewBox="0 0 24 24" stroke="#fbbf24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Custom automation</li>
+            <li><svg viewBox="0 0 24 24" stroke="#fbbf24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Unlimited revisions</li>
+          </ul>
+          <div class="tcard-bottom">
+            <div>
+              <div class="tcard-price" style="color:#fbbf24;">From $200</div>
+              <div class="tcard-delivery">Delivered in 10–14 days</div>
+            </div>
+            <a href="#contact" onclick="pickService('ai')" class="tcard-btn" style="background:rgba(251,191,36,0.15);color:#fbbf24;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:4px;">Get Started →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="fade-section">
+      <div class="contact-wrap">
+        <div class="contact-left">
+          <div class="contact-top-badge">
+            <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Let's work together
+          </div>
+          <div class="big-title">Let's Build Something <span class="hl">Great</span></div>
+          <div class="desc">Have a project in mind? Fill out the form or reach me directly on any platform below.</div>
+          <div class="contact-reply"><span class="dot"></span> Usually replies within 4 hours</div>
+          <div class="section-label">DIRECT CONTACT</div>
+          <div class="contact-rows-horizontal" style="display:flex;gap:16px;flex-wrap:wrap;">
+          <div class="contact-row" style="flex:1;min-width:180px;">
+            <div class="c-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <span class="cv">hello@veltrix.dev</span>
+          </div>
+          <div class="contact-row" style="flex:1;min-width:180px;flex-wrap:nowrap;align-items:center;">
+            <div class="c-icon" style="flex-shrink:0;"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <div style="display:flex;flex-direction:column;gap:4px;flex:1;min-width:0;">
+              <span class="cv" style="font-size:11px;line-height:1.3;">Mon–Sat, 9AM–7PM IST · <span style="font-size:10px;color:#6b6b8a;">India · UTC+5:30</span></span>
+              <span class="live-clock" id="liveClock" style="margin-left:0;align-self:flex-start;"><span class="clock-dot"></span><span id="clockTime">--:--:--</span></span>
+            </div>
+          </div>
+          </div>
+          <div class="section-label" style="font-size:9px;font-weight:600;letter-spacing:0.09em;text-transform:uppercase;color:rgba(255,255,255,0.22);margin-bottom:10px;">HIRE ME ON</div>
+          <div class="hire-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:5px;width:100%;align-items:stretch;">
+            <!-- Fiverr -->
+            <a href="https://www.fiverr.com/s/Ke2bo42" target="_blank" rel="noopener" class="hire-card-new" data-accent="#1dbf73" style="display:flex;flex-direction:column;justify-content:space-between;border-radius:10px;padding:8px 6px;text-align:center;position:relative;overflow:hidden;cursor:pointer;transition:transform 0.18s ease,border-color 0.18s ease;background:#13131f;border:1px solid rgba(29,191,115,0.25);text-decoration:none;">
+              <div style="position:absolute;width:40px;height:40px;border-radius:50%;top:-10px;right:-10px;pointer-events:none;opacity:0.18;background:radial-gradient(circle,#1dbf73,transparent);"></div>
+              <div><div style="width:24px;height:24px;border-radius:7px;margin:0 auto 5px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:#fff;background:#1dbf73;">F</div>
+              <div style="font-size:9px;font-weight:700;color:#fff;margin-bottom:1px;">Fiverr</div>
+              <div style="font-size:9px;font-weight:700;color:#1dbf73;margin-bottom:2px;">$60+</div>
+              <div style="font-size:7px;color:rgba(255,255,255,0.35);line-height:1.3;margin-bottom:3px;">Quick fixed projects, secure pay</div>
+              <span style="font-size:6px;font-weight:700;padding:1px 4px;border-radius:5px;display:inline-block;margin-bottom:2px;background:rgba(29,191,115,0.15);color:#1dbf73;border:1px solid rgba(29,191,115,0.25);">⚡ Fast</span></div>
+              <span class="hire-arrow" style="font-size:10px;color:rgba(255,255,255,0.25);display:block;transition:color 0.15s ease;">↗ Open</span>
+            </a>
+            <!-- Upwork -->
+            <a href="https://www.upwork.com/freelancers/~0108e3ff7ca22b89ab?mp_source=share" target="_blank" rel="noopener" class="hire-card-new" data-accent="#6fda44" style="display:flex;flex-direction:column;justify-content:space-between;border-radius:10px;padding:8px 6px;text-align:center;position:relative;overflow:hidden;cursor:pointer;transition:transform 0.18s ease,border-color 0.18s ease;background:#13131f;border:1px solid rgba(111,218,68,0.25);text-decoration:none;">
+              <div style="position:absolute;width:40px;height:40px;border-radius:50%;top:-10px;right:-10px;pointer-events:none;opacity:0.18;background:radial-gradient(circle,#6fda44,transparent);"></div>
+              <div><div style="width:24px;height:24px;border-radius:7px;margin:0 auto 5px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:#fff;background:#6fda44;">U</div>
+              <div style="font-size:9px;font-weight:700;color:#fff;margin-bottom:1px;">Upwork</div>
+              <div style="font-size:9px;font-weight:700;color:#6fda44;margin-bottom:2px;">$75+</div>
+              <div style="font-size:7px;color:rgba(255,255,255,0.35);line-height:1.3;margin-bottom:3px;">Long-term hourly &amp; milestones</div>
+              <span style="font-size:6px;font-weight:700;padding:1px 4px;border-radius:5px;display:inline-block;margin-bottom:2px;background:rgba(124,58,237,0.2);color:#a78bfa;border:1px solid rgba(124,58,237,0.3);">⭐ Best</span></div>
+              <span class="hire-arrow" style="font-size:10px;color:rgba(255,255,255,0.25);display:block;transition:color 0.15s ease;">↗ Open</span>
+            </a>
+            <!-- Malt -->
+            <a href="https://www.malt.com/profile/deepanr" target="_blank" rel="noopener" class="hire-card-new" data-accent="#fc4e30" style="display:flex;flex-direction:column;justify-content:space-between;border-radius:10px;padding:8px 6px;text-align:center;position:relative;overflow:hidden;cursor:pointer;transition:transform 0.18s ease,border-color 0.18s ease;background:#13131f;border:1px solid rgba(252,78,48,0.25);text-decoration:none;">
+              <div style="position:absolute;width:40px;height:40px;border-radius:50%;top:-10px;right:-10px;pointer-events:none;opacity:0.18;background:radial-gradient(circle,#fc4e30,transparent);"></div>
+              <div><div style="width:24px;height:24px;border-radius:7px;margin:0 auto 5px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:#fff;background:#fc4e30;">M</div>
+              <div style="font-size:9px;font-weight:700;color:#fff;margin-bottom:1px;">Malt</div>
+              <div style="font-size:9px;font-weight:700;color:#fc4e30;margin-bottom:2px;">€80+</div>
+              <div style="font-size:7px;color:rgba(255,255,255,0.35);line-height:1.3;margin-bottom:3px;">EU &amp; global premium clients</div>
+              <span style="font-size:6px;font-weight:700;padding:1px 4px;border-radius:5px;display:inline-block;margin-bottom:2px;background:rgba(37,99,235,0.15);color:#60a5fa;border:1px solid rgba(37,99,235,0.2);">🌍 Global</span></div>
+              <span class="hire-arrow" style="font-size:10px;color:rgba(255,255,255,0.25);display:block;transition:color 0.15s ease;">↗ Open</span>
+            </a>
+          </div>
+        </div>
+        <div class="contact-right">
+          <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+            <div class="form-grid-2">
+              <div class="form-group-c">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" placeholder="John">
+              </div>
+              <div class="form-group-c">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName" placeholder="Doe">
+              </div>
+            </div>
+            <div class="form-group-c">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="john@example.com">
+            </div>
+            <div class="form-group-c">
+              <label>What do you need?</label>
+              <div class="service-grid" id="serviceGrid">
+                <button type="button" data-value="landing">Landing Page</button>
+                <button type="button" data-value="portfolio">Portfolio</button>
+                <button type="button" data-value="figma">Figma to HTML</button>
+                <button type="button" data-value="business">Business</button>
+                <button type="button" data-value="ecommerce">E-Commerce</button>
+                <button type="button" data-value="other">Other</button>
+              </div>
+              <select class="service-select-mobile" id="serviceSelectMobile" style="display:none;">
+                <option value="" disabled selected>What do you need?</option>
+                <option value="Landing page / website">Landing page / website</option>
+                <option value="Portfolio website">Portfolio website</option>
+                <option value="Business website">Business website</option>
+                <option value="E-commerce store">E-commerce store</option>
+                <option value="AI-powered app">AI-powered app</option>
+                <option value="Figma to HTML">Figma to HTML</option>
+                <option value="Other">Other</option>
+              </select>
+              <input type="hidden" id="serviceValue" name="service">
+            </div>
+            <div class="form-grid-2">
+              <div class="form-group-c">
+                <label for="budget">Budget Range</label>
+                <select id="budget" name="budget">
+                  <option value="" disabled selected>Select budget range</option>
+                  <option value="under-50">Under $50 — Quick fixes &amp; small tasks</option>
+                  <option value="50-150">$50–$150 — Landing page or portfolio site</option>
+                  <option value="150-300">$150–$300 — Full website or React project</option>
+                  <option value="300-500">$300–$500 — Complex app or AI integration</option>
+                  <option value="500-plus">$500+ — Large scale / long-term project</option>
+                  <option value="not-sure">Not sure yet — I need a quote first</option>
+                </select>
+              </div>
+              <div class="form-group-c">
+                <label for="timeline">Timeline</label>
+                <select id="timeline" name="timeline">
+                  <option value="" disabled selected>Select timeline</option>
+                  <option value="asap">ASAP (within 48hrs) — +$20 rush fee</option>
+                  <option value="1week">Within 1 week</option>
+                  <option value="2-4weeks">2–4 weeks</option>
+                  <option value="1-2months">1–2 months</option>
+                  <option value="flexible">Flexible / No rush</option>
+                </select>
+                <div id="rushNote" style="display:none;font-size:11px;color:#4ade80;margin-top:6px;">✓ No rush fee for Landing Page &amp; Portfolio projects</div>
+              </div>
+            </div>
+            <div class="form-group-c">
+              <label for="message">Your Project</label>
+              <textarea id="message" name="message" placeholder="Describe your project, goals, and any specific requirements..."></textarea>
+            </div>
+            <button type="submit" class="submit-btn">
+              <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Send Message
+            </button>
+            <div class="privacy-note">🔒 Your information is private and never shared</div>
+          </form>
+        </div>
+          <div class="form-success" id="formSuccess">
+            <div class="checkmark-wrap">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3>Message Sent Successfully! 🎉</h3>
+            <p class="sub-text">Thanks for reaching out! I'll get back to you within 4 hours.</p>
+            <p class="name-line" id="successName">Talk soon, !</p>
+            <span class="reset-link" id="resetForm">Send another message</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="toast" id="toast"></div>
+
+    <!-- ABOUT ME -->
+    <section id="about" class="fade-section">
+      <h2 class="section-title">The Developer <span class="gradient-text">Behind the Code</span></h2>
+      <p class="about-hero-sub">I don't just write code — I build experiences that convert.</p>
+
+      <div class="about-profile-area">
+        <div class="about-avatar-wrap">
+          <div class="about-avatar-ring"></div>
+          <div class="about-avatar-ring-inner"></div>
+          <img src="images/logo.png" alt="Veltrix">
+        </div>
+        <div class="about-profile-info">
+          <div class="name">Deepan</div>
+          <div class="title-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>
+            Frontend Developer &amp; React Specialist
+          </div>
+          <div class="location">📍 Remote · India</div>
+          <div class="availability">
+            <span class="dot"></span>
+            Available for projects
+          </div>
+        </div>
+      </div>
+
+      <div class="about-bio">
+        <p>I build high-performance web applications that drive real business results — from AI-powered SaaS tools to luxury brand experiences. With expertise in React, Next.js, and modern JavaScript, I turn complex requirements into polished, conversion-focused products that users love.</p>
+        <p>What sets me apart is my obsession with craft. Every component, animation, and interaction is deliberate. I don't ship "good enough" — I ship work that makes clients proud. When I'm not pushing pixels or wrangling APIs, I'm exploring AI, contributing to open source, and geeking out over design systems.</p>
+      </div>
+
+      <div class="about-tech-row">
+        <span class="pill"><span class="pill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg></span> React</span>
+        <span class="pill"><span class="pill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#f7df1e" stroke-width="2"><polygon points="12 2 22 7 22 17 12 22 2 17 2 7 12 2"/><polyline points="9 9 12 7 15 9"/><line x1="12" y1="7" x2="12" y2="15"/></svg></span> JavaScript</span>
+        <span class="pill"><span class="pill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2"><polygon points="4 2 20 2 18 18 12 21 6 18 5.5 13 8 13 8.5 15.5 12 17 15.5 15.5 16 10 8 10 7.5 7 16.5 7 17 5 7 5"/></svg></span> HTML</span>
+        <span class="pill"><span class="pill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><polygon points="4 2 20 2 18 18 12 21 6 18 5.5 13 8 13 8.5 16 12 17.5 15.5 16 16 10.5 10 10.5 9.5 7 16.5 7 17 5 7 5"/></svg></span> CSS</span>
+        <span class="pill"><span class="pill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2"><path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z"/><path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z"/><path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z"/><path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v7H8.5a3.5 3.5 0 0 1-3.5-3.5z"/></svg></span> Figma</span>
+        <span class="pill"><span class="pill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span> Tailwind CSS</span>
+      </div>
+
+      <div class="about-stats-row">
+        <div class="about-stat-card"><div class="num">12+</div><div class="label">Projects</div></div>
+        <div class="about-stat-card"><div class="num">8+</div><div class="label">Clients</div></div>
+        <div class="about-stat-card"><div class="num">1+</div><div class="label">Yr Experience</div></div>
+        <div class="about-stat-card"><div class="num">4.9★</div><div class="label">Rating</div></div>
+      </div>
+
+      <div class="about-social-row">
+        <a href="https://github.com/Deepan-hub" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/deepan-frontend" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="mailto:hello@veltrix.dev" aria-label="Email">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== CHATBOT ===== -->
+  <div class="chatbot-preview" id="chatPreview">
+    <span class="preview-text">👋 Hey! Want to discuss your project? I'm here to help!</span>
+    <button class="preview-close" id="previewClose">✕</button>
+  </div>
+
+  <button class="chatbot-toggle" id="chatToggle" aria-label="Toggle chat">
+    <svg class="chat-icon" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <svg class="close-icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+
+  <div class="chatbot-popup" id="chatPopup">
+    <div class="chatbot-header">
+      <div class="ch-avatar">🤖</div>
+      <div>
+        <div class="ch-name">Veltrix AI</div>
+        <div class="ch-status">Online — Replies instantly</div>
+      </div>
+    </div>
+    <div class="chatbot-body" id="chatBody">
+      <div class="chat-msg bot">
+        Hi there! 👋 I'm Veltrix AI. I can help you:
+        <div class="msg-options">
+          <button data-chat="services">📋 View services & pricing</button>
+          <button data-chat="portfolio">💼 See my portfolio</button>
+          <button data-chat="book">📅 Book a discovery call</button>
+          <button data-chat="question">❓ Ask me anything</button>
+        </div>
+      </div>
+      </div>
+      <div class="chat-input-bar">
+        <input type="text" id="chatInput" placeholder="Type a message..." autocomplete="off">
+        <button id="chatSend" aria-label="Send">
+          <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+      </div>
+    </div>
+
+  <script>
+    // === MOBILE MENU ===
+    const hamburger = document.getElementById('hamburger');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+
+    function closeMenu() {
+      hamburger.classList.remove('active');
+      sidebar.classList.remove('open');
+      overlay.classList.remove('show');
+    }
+    function openMenu() {
+      hamburger.classList.add('active');
+      sidebar.classList.add('open');
+      overlay.classList.add('show');
+    }
+    hamburger.addEventListener('click', () => {
+      sidebar.classList.contains('open') ? closeMenu() : openMenu();
+    });
+    overlay.addEventListener('click', closeMenu);
+    document.querySelectorAll('.sidebar-nav a').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    // === NAV ACTIVE STATE ===
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.sidebar-nav a');
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + entry.target.id) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    }, { rootMargin: '-20% 0px -60% 0px' });
+    sections.forEach(s => navObserver.observe(s));
+
+    // === FADE-IN ===
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.fade-section').forEach(el => fadeObserver.observe(el));
+
+    // === PROJECT FILTER ===
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.getAttribute('data-filter');
+        projectCards.forEach(card => {
+          if (filter === 'all' || card.getAttribute('data-category').split(' ').includes(filter)) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // === FORM VALIDATION & SUBMIT ===
+    const form = document.getElementById('contactForm');
+    const formSuccess = document.getElementById('formSuccess');
+    const successName = document.getElementById('successName');
+    const resetLink = document.getElementById('resetForm');
+    const toast = document.getElementById('toast');
+    const serviceBtns = document.querySelectorAll('#serviceGrid button');
+    const serviceHidden = document.getElementById('serviceValue');
+
+    serviceBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        serviceBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        serviceHidden.value = btn.getAttribute('data-value');
+      });
+    });
+
+    // Mobile service select sync
+    const mobileSelect = document.getElementById('serviceSelectMobile');
+    if (mobileSelect) {
+      mobileSelect.addEventListener('change', () => {
+        serviceHidden.value = mobileSelect.value;
+      });
+    }
+
+    // === HIRE CARD HOVER ===
+    document.querySelectorAll('.hire-card-new').forEach(card => {
+      const accent = card.getAttribute('data-accent');
+      const arrow = card.querySelector('.hire-arrow');
+      const origBorder = card.style.borderColor;
+      card.addEventListener('mouseenter', () => {
+        card.style.transform = 'translateY(-3px)';
+        card.style.borderColor = accent;
+        if (arrow) arrow.style.color = accent;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+        card.style.borderColor = origBorder;
+        if (arrow) arrow.style.color = '';
+      });
+    });
+
+    // === TABBED SERVICES ===
+    (function() {
+      const tabs = document.querySelectorAll('.tbtn');
+      const panels = document.querySelectorAll('.tpanel');
+      const tabColors = ['rgba(124,58,237,0.25)','rgba(37,99,235,0.2)','rgba(139,92,246,0.2)','rgba(16,185,129,0.15)','rgba(239,68,68,0.15)','rgba(251,191,36,0.12)'];
+      const tabBorders = ['#7c3aed','#2563eb','#a78bfa','#10b981','#ef4444','#fbbf24'];
+      const tabText = ['#a78bfa','#60a5fa','#a78bfa','#34d399','#f87171','#fbbf24'];
+
+      function switchTab(index, clickedBtn) {
+        panels.forEach((p, i) => {
+          p.style.display = i === index ? 'block' : 'none';
+        });
+        tabs.forEach(b => {
+          b.style.background = 'transparent';
+          b.style.borderColor = 'rgba(255,255,255,0.1)';
+          b.style.color = 'rgba(255,255,255,0.38)';
+        });
+        clickedBtn.style.background = tabColors[index];
+        clickedBtn.style.borderColor = tabBorders[index];
+        clickedBtn.style.color = tabText[index];
+      }
+
+      if (tabs.length > 0) {
+        switchTab(0, tabs[0]);
+        tabs.forEach((btn, i) => {
+          btn.addEventListener('click', () => switchTab(i, btn));
+        });
+      }
+    })();
+
+    resetLink.addEventListener('click', () => {
+      form.reset();
+      formSuccess.classList.remove('show');
+      form.style.display = '';
+      serviceBtns.forEach(b => b.classList.remove('active'));
+      serviceHidden.value = '';
+      document.querySelectorAll('#contactForm input, #contactForm select, #contactForm textarea').forEach(f => {
+        f.classList.remove('error', 'valid'); f.classList.remove('has-value');
+        const err = f.parentElement.querySelector('.field-error');
+        if (err) { err.textContent = ''; err.classList.remove('show'); }
+      });
+      sg.classList.remove('error');
+      form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+
+    function showToast(msg) {
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 4000);
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let firstInvalid = null;
+
+      const fields = [
+        document.getElementById('firstName'),
+        document.getElementById('lastName'),
+        document.getElementById('email'),
+        document.getElementById('budget'),
+        document.getElementById('timeline'),
+        document.getElementById('message')
+      ];
+
+      const sgGroup = sg.closest('.form-group-c');
+      const sgErr = sgGroup.querySelector('.field-error');
+      if (!serviceHidden.value) {
+        sg.classList.add('error');
+        if (sgErr) { sgErr.textContent = 'Please select a service'; sgErr.classList.add('show'); }
+        if (!firstInvalid) firstInvalid = sg;
+      } else { sg.classList.remove('error'); if (sgErr) sgErr.classList.remove('show'); }
+
+      let allValid = true;
+      fields.forEach(f => {
+        if (!validateField(f)) { allValid = false; if (!firstInvalid) firstInvalid = f; }
+      });
+
+      if (!allValid || !serviceHidden.value) {
+        if (firstInvalid) {
+          firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          if (firstInvalid.focus) firstInvalid.focus({ preventScroll: true });
+        }
+        return;
+      }
+
+      const btn = form.querySelector('.submit-btn');
+      btn.disabled = true;
+      btn.innerHTML = '<span class="btn-spinner"></span><span class="btn-text">Sending…</span>';
+
+      const data = {
+        firstName: fields[0].value.trim(),
+        lastName: fields[1].value.trim(),
+        email: fields[2].value.trim(),
+        service: serviceHidden.value,
+        budget: document.getElementById('budget').value,
+        timeline: document.getElementById('timeline').value,
+        message: fields[5].value.trim()
+      };
+
+      fetch(form.action, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      }).then(res => {
+        if (res.ok) {
+          successName.textContent = `Talk soon, ${data.firstName}!`;
+          form.style.display = 'none';
+          formSuccess.classList.add('show');
+        } else {
+          throw new Error('Send failed');
+        }
+      }).catch(() => {
+        btn.disabled = false;
+        btn.innerHTML = '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px;"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Send Message';
+        showToast('Something went wrong. Please try again.');
+      });
+    });
+
+    // === LIVE IST CLOCK ===
+    function updateClock() {
+      const now = new Date();
+      const utc = now.getTime() + now.getTimezoneOffset() * 60000;
+      const ist = new Date(utc + 5.5 * 3600000);
+      const h = String(ist.getHours()).padStart(2, '0');
+      const m = String(ist.getMinutes()).padStart(2, '0');
+      const s = String(ist.getSeconds()).padStart(2, '0');
+      document.getElementById('clockTime').textContent = `${h}:${m}:${s}`;
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+
+    // === CASE STUDIES MOBILE SLIDER ===
+    (function() {
+      const track = document.getElementById('caseSliderTrack');
+      const dotsContainer = document.getElementById('caseDots');
+      const counter = document.getElementById('caseCounter');
+      const prevBtn = document.getElementById('casePrev');
+      const nextBtn = document.getElementById('caseNext');
+      const hint = document.getElementById('caseSwipeHint');
+      if (!track) return;
+
+      const slides = track.querySelectorAll('.case-slide');
+      const total = slides.length;
+      let current = 0;
+      let startX = 0;
+      let hasSwiped = false;
+
+      // Build dots
+      for (let i = 0; i < total; i++) {
+        const dot = document.createElement('button');
+        dot.className = 'case-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+        dot.addEventListener('click', () => goTo(i));
+        dotsContainer.appendChild(dot);
+      }
+      const dots = dotsContainer.querySelectorAll('.case-dot');
+
+      function goTo(index) {
+        if (index < 0) index = total - 1;
+        if (index >= total) index = 0;
+        current = index;
+        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        dots.forEach((d, i) => d.classList.toggle('active', i === current));
+        counter.textContent = (current + 1) + ' / ' + total;
+        // Hide hint on first swipe
+        if (!hasSwiped) { hasSwiped = true; hint.classList.add('hidden'); }
+      }
+
+      // Arrow buttons
+      prevBtn.addEventListener('click', () => goTo(current - 1));
+      nextBtn.addEventListener('click', () => goTo(current + 1));
+
+      // Touch swipe
+      track.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, { passive: true });
+      track.addEventListener('touchend', (e) => {
+        const diff = startX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) {
+          goTo(current + (diff > 0 ? 1 : -1));
+        }
+      }, { passive: true });
+
+      // Auto-hide hint after 4s
+      setTimeout(() => { if (!hasSwiped) hint.classList.add('hidden'); }, 4000);
+    })();
+
+    // === CLOSE MOBILE MENU ON RESIZE ===
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768 && sidebar.classList.contains('open')) closeMenu();
+    });
+
+    // === CHATBOT ===
+    const chatToggle = document.getElementById('chatToggle');
+    const chatPopup = document.getElementById('chatPopup');
+    const chatBody = document.getElementById('chatBody');
+    const chatPreview = document.getElementById('chatPreview');
+    const previewClose = document.getElementById('previewClose');
+    const chatInput = document.getElementById('chatInput');
+    const chatSend = document.getElementById('chatSend');
+
+    setTimeout(() => {
+      if (!chatPopup.classList.contains('open')) chatPreview.classList.add('show');
+    }, 2500);
+
+    previewClose.addEventListener('click', (e) => { e.stopPropagation(); chatPreview.classList.remove('show'); });
+    chatPreview.addEventListener('click', () => { chatPreview.classList.remove('show'); openChat(); });
+    chatToggle.addEventListener('click', () => {
+      if (chatPopup.classList.contains('open')) closeChat();
+      else { chatPreview.classList.remove('show'); openChat(); }
+    });
+
+    function openChat() { chatPopup.classList.add('open'); chatToggle.classList.add('open'); chatBody.scrollTop = chatBody.scrollHeight; }
+    function closeChat() { chatPopup.classList.remove('open'); chatToggle.classList.remove('open'); }
+
+    function addUserMessage(text) {
+      const m = document.createElement('div'); m.className = 'chat-msg user'; m.textContent = text;
+      chatBody.appendChild(m); chatBody.scrollTop = chatBody.scrollHeight;
+    }
+    function addBotMessage(html) {
+      const m = document.createElement('div'); m.className = 'chat-msg bot'; m.innerHTML = html;
+      chatBody.appendChild(m); chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    const qa = [
+      { kw: ['service','pricing','price','cost','package','starter','growth','pro','how much'], res: '📋 <b>Services & Pricing</b><br><br>✦ <b>Starter — $69</b> (Landing page, HTML/CSS/JS, 3 revisions)<br>✦ <b>Growth — $229</b> (React site, API, CMS, Auth, 5 revisions) ← Popular<br>✦ <b>Pro — $499</b> (Full stack MERN, AI features, unlimited revisions)<br><br>All include mobile responsive & fast delivery. <a href="#services" style="color:#a78bfa;">View full details →</a>' },
+      { kw: ['portfolio','project','work','built','show','case','example'], res: '💼 <b>My Projects</b><br><br>🔹 AI-Powered Thumbnail Generator (React)<br>🔹 Luxury Restaurant Website (React)<br>🔹 Multi-Specialty Healthcare (HTML/CSS)<br>🔹 Freelancer Portfolio Website (React)<br><br>Check the <a href="#projects" style="color:#a78bfa;">Projects section →</a> or <a href="#casestudies" style="color:#a78bfa;">Case Studies →</a> for detailed results.' },
+      { kw: ['contact','hire','book','call','project inquiry','message','reach'], res: '📬 <b>Let\'s work together!</b><br><br>Fill out the <a href="#contact" style="color:#a78bfa;">contact form</a> with your project details and I\'ll reply within 4 hours.<br><br>Or email me directly at <b>hello@veltrix.dev</b>' },
+      { kw: ['about','who','developer','experience','skill','tech stack','react','next'], res: '👨‍💻 <b>About Me</b><br><br>I\'m a frontend developer specializing in React, Next.js, and modern JavaScript. I build high-performance web apps — from AI tools to luxury brand experiences.<br><br>⚛️ React · Next.js · JavaScript · Node.js · Figma<br><br>12+ projects delivered for 8+ clients worldwide.' },
+      { kw: ['availability','available','time','turnaround','delivery','when','how long'], res: '⏱ <b>Availability & Delivery</b><br><br>✅ Open for new projects — May 2026<br>⚡ Most projects delivered in 48–72hrs<br>📦 Starter: 2–3 days · Growth: 5–7 days · Pro: 10–15 days<br><br>I\'m currently taking 2 projects for this month.' },
+      { kw: ['tech','stack','technology','html','css','javascript','js','tailwind','figma'], res: '🛠 <b>My Tech Stack</b><br><br>⚛️ React · Next.js<br>💛 JavaScript (ES6+)<br>🎨 HTML5 · CSS3 · Tailwind CSS<br>🟢 Node.js<br>🖌 Figma (design to code)<br>🔗 REST APIs · Firebase · Git' },
+      { kw: ['hello','hi','hey','good morning','good evening','help','start'], res: 'Hey there! 👋 I\'m Veltrix AI. Here\'s what I can help you with:<br><br>📋 <b>Services & Pricing</b><br>💼 <b>My Portfolio</b><br>📬 <b>Contact & Hire</b><br>👨‍💻 <b>About Me</b><br><br>Just type your question or pick an option above!' },
+      { kw: ['thanks','thank','appreciate'], res: 'You\'re welcome! 🙌 Feel free to reach out anytime. I\'m here to help!' },
+      { kw: ['cost','price','budget','afford','cheap','expensive','dollar','$'], res: '💰 <b>Pricing Overview</b><br><br>✦ Landing Pages — From $60<br>✦ Portfolio Sites — From $75<br>✦ Business Sites — From $100<br>✦ React Web Apps — From $200<br>✦ AI-Powered Apps — From $350<br>✦ Figma to Code — From $50<br><br>Packages start at <b>$69</b>. <a href="#services" style="color:#a78bfa;">See all pricing →</a>' }
+    ];
+
+    function getResponse(input) {
+      const lower = input.toLowerCase();
+      for (const item of qa) {
+        if (item.kw.some(k => lower.includes(k))) return item.res;
+      }
+      return '🤔 I\'m not sure I understand. Could you try asking about my <b>services</b>, <b>portfolio</b>, <b>pricing</b>, or <b>availability</b>? Or pick an option from the menu!';
+    }
+
+    function showMenu() {
+      addBotMessage('Hi there! 👋 I\'m Veltrix AI. I can help you:<div class="msg-options"><button data-chat="services">📋 View services & pricing</button><button data-chat="portfolio">💼 See my portfolio</button><button data-chat="book">📅 Book a discovery call</button><button data-chat="question">❓ Ask me anything</button></div>');
+    }
+
+    function handleSend() {
+      const text = chatInput.value.trim();
+      if (!text) return;
+      chatInput.value = '';
+      addUserMessage(text);
+      setTimeout(() => { addBotMessage(getResponse(text)); }, 400);
+    }
+
+    chatSend.addEventListener('click', handleSend);
+    chatInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') handleSend(); });
+
+    document.addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-chat]');
+      if (!btn) return;
+      const action = btn.getAttribute('data-chat');
+      if (!chatPopup.classList.contains('open')) { chatPreview.classList.remove('show'); openChat(); }
+      if (action === 'services') {
+        addUserMessage('Show me your services and pricing');
+        setTimeout(() => { addBotMessage(qa[0].res); }, 500);
+      } else if (action === 'portfolio') {
+        addUserMessage('Show me your portfolio');
+        setTimeout(() => { addBotMessage(qa[1].res); }, 500);
+      } else if (action === 'book') {
+        addUserMessage('I\'d like to book a discovery call');
+        setTimeout(() => { addBotMessage(qa[2].res); }, 500);
+      } else if (action === 'question') {
+        addUserMessage('I have a question');
+        setTimeout(() => { addBotMessage('Sure! Ask me anything about my services, pricing, tech stack, availability, or past projects. I\'m here to help! 😊'); }, 500);
+      }
+    });
+
+    // === TYPEWRITER ===
+    const typeWords = ['React Apps', 'Landing Pages', 'SaaS Products', 'Web Experiences', 'Portfolio Websites'];
+    let wordIdx = 0;
+    let charIdx = 0;
+    let isDeleting = false;
+    const typeEl = document.getElementById('typewriterText');
+
+    function typeEffect() {
+      const current = typeWords[wordIdx];
+      if (!isDeleting) {
+        typeEl.textContent = current.substring(0, charIdx + 1);
+        charIdx++;
+        if (charIdx === current.length) {
+          isDeleting = true;
+          setTimeout(typeEffect, 2000);
+          return;
+        }
+        setTimeout(typeEffect, 80);
+      } else {
+        typeEl.textContent = current.substring(0, charIdx - 1);
+        charIdx--;
+        if (charIdx === 0) {
+          isDeleting = false;
+          wordIdx = (wordIdx + 1) % typeWords.length;
+          setTimeout(typeEffect, 300);
+          return;
+        }
+        setTimeout(typeEffect, 40);
+      }
+    }
+    typeEffect();
+
+    // === ANIMATED GRID BACKGROUND ===
+    const canvas = document.getElementById('gridCanvas');
+    const ctx = canvas.getContext('2d');
+    let animId;
+    let time = 0;
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    function drawGrid() {
+      const w = canvas.width;
+      const h = canvas.height;
+      const cellSize = 52;
+      const centerX = w / 2;
+      const centerY = h / 2;
+      const maxDist = Math.sqrt(centerX * centerX + centerY * centerY);
+
+      ctx.clearRect(0, 0, w, h);
+
+      // radial glow
+      const grad = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, maxDist * 0.6);
+      grad.addColorStop(0, 'rgba(124,58,237,0.08)');
+      grad.addColorStop(0.4, 'rgba(99,48,214,0.05)');
+      grad.addColorStop(1, 'rgba(11,11,19,0)');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, w, h);
+
+      const scrollX = (time * 0.15) % cellSize;
+      const scrollY = (time * 0.10) % cellSize;
+
+      const cols = Math.ceil(w / cellSize) + 1;
+      const rows = Math.ceil(h / cellSize) + 1;
+
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          const gx = c * cellSize + scrollX - cellSize;
+          const gy = r * cellSize + scrollY - cellSize;
+
+          const cx = gx + cellSize / 2;
+          const cy = gy + cellSize / 2;
+          const dist = Math.sqrt((cx - centerX) ** 2 + (cy - centerY) ** 2);
+          const distNorm = Math.min(dist / (maxDist * 0.7), 1);
+
+          const wave = 0.5 + 0.5 * Math.sin(dist * 0.02 - time * 0.008);
+          const pulse = 0.08 + 0.06 * wave * (1 - distNorm * 0.5);
+
+          ctx.strokeStyle = `rgba(124,58,237,${pulse})`;
+          ctx.lineWidth = 0.8;
+          ctx.strokeRect(gx + 1, gy + 1, cellSize - 2, cellSize - 2);
+        }
+      }
+
+      time++;
+      animId = requestAnimationFrame(drawGrid);
+    }
+
+    drawGrid();
+
+    function pickService(value) {
+      setTimeout(() => {
+        document.querySelectorAll('#serviceGrid button')
+          .forEach(b => b.classList.remove('active'));
+        const btn = document.querySelector(
+          '#serviceGrid button[data-value="' + value + '"]'
+        );
+        if (btn) {
+          btn.classList.add('active');
+          const hidden = document.getElementById('serviceValue');
+          if (hidden) hidden.value = value;
+        }
+        checkRushFee();
+      }, 500);
+    }
+
+    function checkRushFee() {
+      const timeline = document.getElementById('timeline');
+      const service = document.getElementById('serviceValue');
+      const note = document.getElementById('rushNote');
+      const noFeeServices = ['landing', 'portfolio', 'figma'];
+      if (timeline && service && note) {
+        if (timeline.value === 'asap' && noFeeServices.includes(service.value)) {
+          note.style.display = 'block';
+          note.textContent = '✓ No rush fee for this service — ASAP delivery included!';
+          note.style.color = '#4ade80';
+        } else if (timeline.value === 'asap') {
+          note.style.display = 'block';
+          note.textContent = '⚡ +$20 rush fee applies for ASAP delivery';
+          note.style.color = '#f59e0b';
+        } else {
+          note.style.display = 'none';
+        }
+      }
+    }
+
+<script src="script.js"></script>
+</body>
+</html>
